@@ -4,8 +4,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+// Privet, Kak Dela?
 public class Main {
-
+    
     public static void main(String[] args) throws IOException, InterruptedException {
         int port = 8765;
         List<String> ip;
