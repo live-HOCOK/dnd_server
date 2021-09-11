@@ -1,10 +1,10 @@
 import java.lang.reflect.InvocationTargetException;
 
-public class CharacterСlass extends Man<CharacterСlass> {
+public class CharacterСlass {
+    public String RaceName;
+    public String race;
+    public String sex;
+    public int paraped;
+    public boolean pidr;
 
-
-
-    public static CharacterСlass createContents() {
-            return new CharacterСlass();
-    }
 }
