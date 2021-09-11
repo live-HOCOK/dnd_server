@@ -9,7 +9,8 @@ class Server(port: Int) : WebSocketServer(InetSocketAddress(port)) {
     var ipPlayers = listOf<String>()
 
     override fun onOpen(webSocket: WebSocket, clientHandshake: ClientHandshake) {
-        println("open: " + webSocket.remoteSocketAddress.hostName)
+
+        webSocket.send("эээээээээээ")
     }
 
     override fun onClose(webSocket: WebSocket, i: Int, massage: String, b: Boolean) {
