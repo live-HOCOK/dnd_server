@@ -7,14 +7,19 @@ public abstract class BaseCharacteristics<T> extends ArrayList<Map<String,Object
 
     protected abstract T getInstance();
 
- /*   protected Field[] retrievingFields() {
+/*    protected Field[] retrievingFields() {
         Class<?> current = getInstance().getClass();
         Field[] fields = current.getDeclaredFields();
         return fields;
     }*/
 
 
-   /* public boolean checkFieldInCSV(String a, Field[] fields) {
+    public BaseCharacteristics (String path) throws FileNotFoundException {
+
+}
+
+
+/*    public boolean checkFieldInCSV(String a, Field[] fields) {
         boolean runSystem = false;
         String[] words = a.split(";");
         for (int i = 0; i < words.length; i++) {

@@ -16,10 +16,14 @@ public class Launcher {
         //boolean runSystem = Man.checkFieldInCSV(a,fields); //or move to condition if
 
         if (runSystem) {
-            OpenCsvExample openCsvExample = new OpenCsvExample();
-            openCsvExample.read("C:\\Temp\\csv1.csv");
-            System.out.println(openCsvExample.size());
-            System.out.println(openCsvExample.get(0).get("raceName"));
+            OpenCsvExample openCsvExample1 = new OpenCsvExample();
+            OpenCsvExample openCsvExample2 = new OpenCsvExample();
+            openCsvExample1.read("C:\\Temp\\Race.csv");
+            System.out.println(openCsvExample1.size());
+            System.out.println(openCsvExample1.get(0).get("raceName"));
+            openCsvExample2.read("C:\\Temp\\CharacterСlass.csv");
+            System.out.println(openCsvExample2.size());
+            System.out.println(openCsvExample2.get(0).get("characterName"));
           /*  System.out.println(listRace.size());
             System.out.println(listRace.get(0).get("raceName"));
             System.out.println(listCharacterСlass.size());
