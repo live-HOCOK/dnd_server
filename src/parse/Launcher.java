@@ -10,16 +10,18 @@ public class Launcher {
 
         //ArrayList listRace = new RaceContainer();
         CharacterСlassContainer listCharacterСlass = new CharacterСlassContainer("C:\\Temp\\csv1.csv");
-
+        RaceContainer listRace = new RaceContainer("C:\\Temp\\csv1.csv");
        // Field[] fields = Man.retrievingFields(man);
         boolean runSystem = true;
         //boolean runSystem = Man.checkFieldInCSV(a,fields); //or move to condition if
-        System.out.println("1");
+        
         if (runSystem) {
             //Man.createList(scanner,a,fields);
            // listRace.getList("C:\\Temp\\csv1.csv");
+            System.out.println(listRace.size());
+            System.out.println(listRace.get(0).get("raceName"));
             System.out.println(listCharacterСlass.size());
-            System.out.println(listCharacterСlass.get(2).RaceName);
+            System.out.println(listCharacterСlass.get(2).get("characterName"));
         }
     }
 }

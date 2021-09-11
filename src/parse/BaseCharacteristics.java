@@ -1,10 +1,9 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
-public abstract class BaseCharacteristics<T> extends ArrayList<T> {
+public abstract class BaseCharacteristics<T> extends ArrayList<Map<String,Object>> {
 
     protected abstract T getInstance();
 
@@ -14,10 +13,11 @@ public abstract class BaseCharacteristics<T> extends ArrayList<T> {
         return fields;
     }
 
-    public BaseCharacteristics (String path) throws FileNotFoundException {
+/*    public BaseCharacteristics (String path) throws FileNotFoundException {
 
-        Field[] fields = retrievingFields();
+       Field[] fields = retrievingFields();
         IReadParse openCsvExample = new OpenCsvExample();
+        String[] massFields1 = openCsvExample.read(path);
         String[] massFields = openCsvExample.parseFields(path);
         String[] massValues = openCsvExample.parseValues(path);
         for (int i = 0; i < massFields.length; i++) {
@@ -35,35 +35,26 @@ public abstract class BaseCharacteristics<T> extends ArrayList<T> {
             }
             add(targetObject);
         }
-    }
+    }*/
 
-//    public BaseCharacteristics (String path) throws FileNotFoundException {
-//        Scanner scanner = new Scanner(new File(path));
-//        scanner.useDelimiter("\\r\\n");
-//       String a = scanner.next();
-//
-//        Field[] fields =retrievingFields();
-//
-//        while (scanner.hasNext()) {
-//          //  String[] words = a.split(";");
-//            //words = scanner.next().split(";");
-//            String[] words = scanner.next().split(";");
-//            T targetObject = getInstance();
-//            for (int j = 0; j < words.length; j++) {
-//                Field field = fields[j];
-//
-//                if (field.getType().equals(int.class)) {
-//                    setField(targetObject, field.getName(), Integer.parseInt(words[j]));
-//                } else if (field.getType().equals(boolean.class)) {
-//                   setField(targetObject, field.getName(), Boolean.parseBoolean(words[j]));
-//                } else if (field.getType().equals(String.class)) {
-//                    setField(targetObject, field.getName(), words[j]);
-//                }
-//
-//            }
-//            add(targetObject);
-//        }
-//    }
+    public BaseCharacteristics (String path) throws FileNotFoundException {
+        Scanner scanner = new Scanner(new File(path));
+        scanner.useDelimiter("\\r\\n");
+        String a = scanner.next();
+        List<Map<String,Object>> listMapObj = new ArrayList<>();
+
+        Field[] fields =retrievingFields();
+
+        while (scanner.hasNext()) {
+            Map<String,Object> mapObj = new HashMap<>();
+            String[] words = scanner.next().split(";");
+            for (int j = 0; j < words.length; j++) {
+                String field = fields[j].getName();
+                mapObj.put(field,words[j]);
+            }
+            add(mapObj);
+        }
+}
 
 
    public boolean setField(Object targetObject, String fieldName, Object fieldValue) {
