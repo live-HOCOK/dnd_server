@@ -1,3 +1,5 @@
+package parse;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Field;
@@ -41,12 +43,12 @@ public abstract class BaseCharacteristics<T> extends ArrayList<Map<String,Object
         Scanner scanner = new Scanner(new File(path));
         scanner.useDelimiter("\\r\\n");
         String a = scanner.next();
-        List<Map<String,Object>> listMapObj = new ArrayList<>();
+        List<Map<String,Object>> listMapObj = new ArrayList<Map<String,Object>>();
 
         Field[] fields =retrievingFields();
 
         while (scanner.hasNext()) {
-            Map<String,Object> mapObj = new HashMap<>();
+            Map<String,Object> mapObj = new HashMap<String,Object>();
             String[] words = scanner.next().split(";");
             for (int j = 0; j < words.length; j++) {
                 String field = fields[j].getName();

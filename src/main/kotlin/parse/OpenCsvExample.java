@@ -1,3 +1,5 @@
+package parse;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Field;
@@ -13,7 +15,7 @@ public class OpenCsvExample implements IReadParse{
        scanner.useDelimiter("\\r\\n");
        String a = scanner.next();
        String[] words = a.split(";");
-       Map<String,Object> mapObj = new HashMap<>();
+       Map<String,Object> mapObj = new HashMap<String,Object>();
         while (scanner.hasNext()) {
           //  String[] words = a.split(";");
             //words = scanner.next().split(";");
@@ -23,7 +25,7 @@ public class OpenCsvExample implements IReadParse{
         return words;
     }
 
-    @Override
+
     public String[] parseValues(String path) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(path));
         scanner.useDelimiter("\\r\\n");
@@ -35,12 +37,8 @@ public class OpenCsvExample implements IReadParse{
         return new String[0];
     }
 
-    @Override
+
     public String[] parseFields(String path) throws FileNotFoundException{
-    //    read(path).useDelimiter("\\r\\n");
-    //    String a = read(path).next();
-    //    String[] words = a.split(";");
-       // String[] words = read(path).split(";");
 
         return new String[0];
     }

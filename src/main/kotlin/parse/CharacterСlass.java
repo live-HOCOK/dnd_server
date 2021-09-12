@@ -1,3 +1,5 @@
+package parse;
+
 import java.lang.reflect.InvocationTargetException;
 
 public class CharacterСlass {
@@ -8,5 +10,6 @@ public class CharacterСlass {
     public int agility;
     public int intelligence;
     public int charisma;
+    public String skill;
 
 }

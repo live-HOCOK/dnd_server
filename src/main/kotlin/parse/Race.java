@@ -1,3 +1,5 @@
+package parse;
+
 public class Race  {
     public String raceName;
     public int health;
