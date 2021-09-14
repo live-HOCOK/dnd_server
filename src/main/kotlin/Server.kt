@@ -1,6 +1,9 @@
+import character.CharacterClass
+import character.CharacterRace
 import com.google.gson.Gson
 import messages.Message
 import messages.MessageType
+import messages.RacesAndClasses
 import messages.RollDice
 import org.java_websocket.WebSocket
 import org.java_websocket.handshake.ClientHandshake
@@ -10,29 +13,33 @@ import java.net.InetSocketAddress
 
 class Server(port: Int) : WebSocketServer(InetSocketAddress(port)) {
 
-    var ipPlayers = listOf<String>()
-
     override fun onOpen(webSocket: WebSocket, clientHandshake: ClientHandshake) {
-
-        webSocket.send("эээээээээээ")
+        println("${webSocket.remoteSocketAddress.hostName} connected")
+        val raceAndClasses = RacesAndClasses()
+        // TODO получать список классов и рас из csv
+        raceAndClasses.classes.add(CharacterClass("гвоноед", 1, 2, 3, 4, 5, 6))
+        raceAndClasses.races.add(CharacterRace("криса", 1, 2, 3, 4, 5, 6))
+        //
+        val mess = Message()
+        mess.messageType = MessageType.RacesAndClasses
+        mess.data = raceAndClasses
+        println("Send message: ${mess.toJSON()} to ${webSocket.remoteSocketAddress.hostName}")
+        webSocket.send(mess.toJSON())
     }
 
     override fun onClose(webSocket: WebSocket, i: Int, massage: String, b: Boolean) {
-        println("close: " + webSocket.remoteSocketAddress.hostName)
+        println("${webSocket.remoteSocketAddress.hostName} disconnected")
     }
 
     override fun onMessage(webSocket: WebSocket, message: String) {
-        println(message)
+        println("Receive message: $message from ${webSocket.remoteSocketAddress.hostName}")
         val mess = Gson().fromJson(message, Message::class.java)
-        println(mess.messageType)
-        println(mess.data)
-        println(MessageType.RollDice)
         if (mess.messageType == MessageType.RollDice){
             val rollDice = Gson().fromJson(mess.data.toString(), RollDice::class.java)
-            rollDice.SetValue()
+            rollDice.setValue()
             mess.messageType = MessageType.RollDice
             mess.data = rollDice
-            print(mess.toJSON())
+            println("Send message : ${mess.toJSON()} to ${webSocket.remoteSocketAddress.hostName}")
             broadcast(mess.toJSON())
         }
     }

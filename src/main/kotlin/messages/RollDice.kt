@@ -3,7 +3,7 @@ package messages
 class RollDice {
     var value: Int = 0
 
-    fun SetValue(){
+    fun setValue(){
         value = (0..value).random()
     }
 }
