@@ -23,18 +23,10 @@ public class Launcher {
         //boolean runSystem = Man.checkFieldInCSV(a,fields); //or move to condition if
         
         if (runSystem) {
-            //Man.createList(scanner,a,fields);
-           // listRace.getList("C:\\Temp\\csv1.csv");
-            //System.out.println(listRace.size());
-            //System.out.println(listRace.get(0));
-            //System.out.println(listCharacterСlass.get(0).size());
-            System.out.println(listCharacterСlass.get(0).get("equipments"));
-            //System.out.println(listCharacterСlass.get(0).get(9));
-            //String s = Gson().toJson(listRace);
             Gson gson = new Gson();
-            String json = gson.toJson(listRace.get(0));
-            Map obj = gson.fromJson(json, listRace.get(0).getClass());
-            System.out.println(obj.get("equipment"));
+            String json = gson.toJson(listCharacterСlass.get(0));
+            Map obj = gson.fromJson(json, listCharacterСlass.get(0).getClass());
+            System.out.println(obj.get("equipments"));
 
         }
     }
