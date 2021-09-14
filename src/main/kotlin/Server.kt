@@ -18,7 +18,7 @@ class Server(port: Int) : WebSocketServer(InetSocketAddress(port)) {
         val raceAndClasses = RacesAndClasses()
         // TODO получать список классов и рас из csv
         raceAndClasses.classes.add(CharacterClass("гвоноед", 1, 2, 3, 4, 5, 6))
-        raceAndClasses.races.add(CharacterRace("криса", 1, 2, 3, 4, 5, 6))
+        raceAndClasses.races.add(CharacterRace("криса", 1, 2, 3, 4, 5, 6, ""))
         //
         val mess = Message()
         mess.messageType = MessageType.RacesAndClasses

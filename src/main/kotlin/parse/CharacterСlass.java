@@ -11,5 +11,6 @@ public class CharacterСlass {
     public int intelligence;
     public int charisma;
     public String skill;
+    public String[] equipments;
 
 }

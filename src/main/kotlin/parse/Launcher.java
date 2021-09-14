@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Launcher {
@@ -24,14 +25,17 @@ public class Launcher {
         if (runSystem) {
             //Man.createList(scanner,a,fields);
            // listRace.getList("C:\\Temp\\csv1.csv");
-            System.out.println(listRace.size());
-            System.out.println(listRace.get(0).get("raceName"));
-            System.out.println(listCharacterСlass.size());
-            System.out.println(listCharacterСlass.get(2).get("characterName"));
+            //System.out.println(listRace.size());
+            //System.out.println(listRace.get(0));
+            //System.out.println(listCharacterСlass.get(0).size());
+            System.out.println(listCharacterСlass.get(0).get("equipments"));
+            //System.out.println(listCharacterСlass.get(0).get(9));
             //String s = Gson().toJson(listRace);
             Gson gson = new Gson();
-            gson.toJson(listRace.get(0));
-            System.out.println(gson);
+            String json = gson.toJson(listRace.get(0));
+            Map obj = gson.fromJson(json, listRace.get(0).getClass());
+            System.out.println(obj.get("equipment"));
+
         }
     }
 }
