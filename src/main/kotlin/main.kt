@@ -8,6 +8,12 @@ fun main(args: Array<String>) {
         if (keyIn.equals("exit")){
             s.stop(1000)
             break
+        } else if (keyIn.equals("players")) {
+            s.players.forEach{
+                println(it.ip)
+            }
+        } else if (keyIn.equals("new")) {
+            s.players.clear()
         }
     }
 }

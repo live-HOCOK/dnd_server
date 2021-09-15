@@ -6,7 +6,9 @@ enum class MessageType {
     @SerializedName("0")
     RollDice,
     @SerializedName("1")
-    UpdateParameters,
+    UpdatePlayer,
     @SerializedName("2")
     RacesAndClasses,
+    @SerializedName("3")
+    CreatePlayer,
 }
