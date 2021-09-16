@@ -1,14 +1,5 @@
 package parse;
 
-import com.google.gson.Gson;
-import com.google.gson.annotations.SerializedName;
-
-import java.io.File;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Scanner;
-
 public class Launcher {
     public static void main(String[] args) throws Exception {
 
@@ -16,18 +7,20 @@ public class Launcher {
 
         //ArrayList listRace = new RaceContainer();
 
-        CharacterСlassContainer listCharacterСlass = new CharacterСlassContainer("src/main/resources/CharacterСlass.csv");
-        RaceContainer listRace = new RaceContainer("src/main/resources/Race.csv");
-       // Field[] fields = Man.retrievingFields(man);
-        boolean runSystem = true;
-        //boolean runSystem = Man.checkFieldInCSV(a,fields); //or move to condition if
-        
-        if (runSystem) {
-            Gson gson = new Gson();
-            String json = gson.toJson(listCharacterСlass.get(0));
-            Map obj = gson.fromJson(json, listCharacterСlass.get(0).getClass());
-            System.out.println(obj.get("equipments"));
+        CharacterСlassContainer listCharacterСlass = new CharacterСlassContainer(new CsvParser("src/main/resources/CharacterСlass.csv"));
+        RaceContainer listRace = new RaceContainer(new CsvParser("src/main/resources/Race.csv"));
 
-        }
+        System.out.println(listRace.get(0).getHealth());
+        //System.out.println(listCharacterСlass.get(0).getSkill());
+        System.out.println(listRace.get(0).getRaceName());
+
+
+        System.out.println(listCharacterСlass.get(0).getHealth());
+        System.out.println(listCharacterСlass.get(0).getSkill());
+        System.out.println(listCharacterСlass.get(0).getEquipments()[1]);
+
+       // Field[] fields = Man.retrievingFields(man);
+        //boolean runSystem = Man.checkFieldInCSV(a,fields); //or move to condition if
+
     }
 }

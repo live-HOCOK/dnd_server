@@ -1,4 +1,4 @@
 characterName;health;armor;force;agility;intelligence;charisma;skill;equipments
-paladin;100;10;12;8;8;5;light;["da","ea","tata1"]
-berserk;100;10;10;12;8;5;fire;["da","ea","tata2"]
-priest;100;10;8;10;12;5;hill;["da","ea","tata3"]
+paladin;100;10;12;8;8;5;light;[da,ea,tata1]
+berserk;100;10;10;12;8;5;fire;[da,ea,tata2]
+priest;100;10;8;10;12;5;hill;[da,ea,tata3]

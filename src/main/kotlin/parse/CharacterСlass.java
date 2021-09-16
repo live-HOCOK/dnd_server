@@ -1,7 +1,5 @@
 package parse;
 
-import java.lang.reflect.InvocationTargetException;
-
 public class CharacterСlass {
     public String characterName;
     public int health;
@@ -13,4 +11,39 @@ public class CharacterСlass {
     public String skill;
     public String[] equipments;
 
+    public int getHealth() {
+        return health;
+    }
+
+    public String[] getEquipments() {
+        return equipments;
+    }
+
+    public int getCharisma() {
+        return charisma;
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    public int getAgility() {
+        return agility;
+    }
+
+    public int getForce() {
+        return force;
+    }
+
+    public int getArmor() {
+        return armor;
+    }
+
+    public String getCharacterName() {
+        return characterName;
+    }
 }
