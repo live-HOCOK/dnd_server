@@ -25,6 +25,7 @@ class Server(port: Int) : WebSocketServer(InetSocketAddress(port)) {
         }
         val raceAndClasses = RacesAndClasses()
         // TODO получать список классов и рас из csv
+
         raceAndClasses.classes.add(CharacterClass("гвоноед", 1, 2, 3, 4, 5, 6, 7, mutableListOf("член", "говно")))
         raceAndClasses.classes.add(CharacterClass("членоед", 7, 6, 5, 4, 5, 6, 7, mutableListOf("писька", "зуб")))
         raceAndClasses.races.add(CharacterRace("криса", 1, 2))
