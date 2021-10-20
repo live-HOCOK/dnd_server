@@ -11,4 +11,6 @@ enum class MessageType {
     RacesAndClasses,
     @SerializedName("3")
     CreatePlayer,
+    @SerializedName("4")
+    NewGame,
 }

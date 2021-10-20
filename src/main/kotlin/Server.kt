@@ -31,7 +31,7 @@ class Server(port: Int) : WebSocketServer(InetSocketAddress(port)) {
         raceAndClasses.races.add(CharacterRace("мышка", 2, 1))
         //
         val mess = Message(MessageType.RacesAndClasses, raceAndClasses)
-        sendMessageAll(mess, webSocket)
+        sendMessage(mess, webSocket)
     }
 
     override fun onClose(webSocket: WebSocket, i: Int, massage: String, b: Boolean) {
@@ -62,6 +62,9 @@ class Server(port: Int) : WebSocketServer(InetSocketAddress(port)) {
                 players.add(newPlayer)
                 mess = Message(MessageType.UpdatePlayer, newPlayer)
                 sendMessageAll(mess, webSocket)
+            }
+            MessageType.NewGame -> {
+                players.clear()
             }
             else -> println("WARNING: Unknown message!")
         }

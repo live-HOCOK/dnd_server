@@ -5,7 +5,7 @@ fun main(args: Array<String>) {
     println("Server starting on port: ${s.port}")
     while (true){
         val keyIn = readLine()
-        if (keyIn.equals("exit")){
+        if (keyIn.equals("exit") or keyIn.equals("stop")){
             s.stop(1000)
             break
         } else if (keyIn.equals("players")) {

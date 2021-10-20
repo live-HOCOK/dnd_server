@@ -17,6 +17,7 @@ class Player {
     @SerializedName("Intelligence") var intelligence: Int? = null
     @SerializedName("Charisma") var charisma: Int? = null
     @SerializedName("Equipments") var equipments = mutableListOf<String>()
+    @SerializedName("Avatar") var avatar: ByteArray? = null
 
     fun setBaseCharacteristic(_ip: String){
         if (playerRace != null && playerClass != null) {
